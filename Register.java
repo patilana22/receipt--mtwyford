@@ -22,7 +22,14 @@
 *             iii. seasonal or promotional message that could change from time to time.
 *
 * That's a good start.
+
+Anand Patil
+Septemeber 18, 2020
 */
+
+import java.util.ArrayList;
+import java.lang.Integer;
+import java.util.Scanner;
 
 public class Register {
 
@@ -30,11 +37,51 @@ public class Register {
 // a menu system may call upon the transaction 'window' or screen
 // then you could call up a receipt printer function.
 
-public static void main (String[] args) {
+public static void main(String[] args) {
 
     //main menu system
     // how will you call upon or implement other classes?
-    
+
+    int i = 0;
+    boolean run = true;
+    ArrayList<Integer> items = new ArrayList<>();
+
+    while(run)
+    {
+    	if (i >= 10)
+    	{
+    		System.out.println("Maximum purchases reached... printing receipt.");
+    		break;
+    	}
+
+
+    	//Create new instance of transaction
+	    Transaction transaction = new Transaction();
+	    transaction.greet();
+
+	    //Greet person and get choice
+	    int choice = transaction.purchase();
+	    
+	    //Add the choice to items
+	    items.add(choice);
+
+	    //Ask to continue
+	    Scanner scan = new Scanner(System.in);
+
+	    System.out.print("Would you like to keep running? \n - Yes (Y) \n - No, go to receipt (press Enter) \n Reponse: ");
+	    String choiceToContinue = scan.nextLine(); //Get response
+	    if (!choiceToContinue.equalsIgnoreCase("Y"))
+	    {
+	    	run = false; //Tell program to stop running
+	    }
+	    System.out.println("\n\n");
+
+	    i++;
+
+	}
+
+    new ReceiptPrinter().printer(items); //Print the receipt
+
     }  //close main method
 
 }  // close the class
