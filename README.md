@@ -10,7 +10,7 @@ First GitHub Classroom Assignment for APCS
   # git is NOT 
   * A cloud based IDE
   * a private store for your code
-  * a money making venture
+  * a money making venture (we're looking at you Jake)
   
   # git IS:
   * a cloud (and desktop) based collaboration tool for 
